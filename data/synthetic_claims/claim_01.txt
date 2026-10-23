@@ -1,0 +1,31 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+SUPERBILL / ENCOUNTER FORM
+
+PROVIDERS
+Billing Provider: Sample Family Medicine Group
+Billing Provider NPI: 1234567893
+Rendering Provider: Dr. Alex Example
+Rendering Provider NPI: 1234567893
+
+PATIENT
+Patient Name: SYNTHETIC PATIENT A
+DOB: 1987-04-12
+Sex: F
+Insurance: ExamplePayer PPO
+Member ID: EP-78451233
+
+ENCOUNTER
+Date of Service: 2026-02-12
+Place of Service: 11
+
+DIAGNOSES (ICD-10-CM)
+1. J02.9 - Acute pharyngitis, unspecified
+2. R50.9 - Fever, unspecified
+
+PROCEDURES
+Line 1: CPT 99213 | Office visit, established patient | Units: 1 | Modifiers: none | Dx Pointers: 1, 2 | Charge: $145.00
+Line 2: CPT 87880 | Rapid strep A antigen test | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $35.00
+
+CLINICAL NOTE
+Sore throat and fever for 3 days. Tonsillar exudate. Rapid strep A positive in office.

@@ -1,0 +1,10 @@
+# Runtime dependencies. The last line installs this project itself as a
+# package (editable mode) so `import claims_autopilot` works from anywhere.
+openai>=1.92
+pydantic>=2.6
+pandas>=2.0
+PyYAML>=6.0
+python-dotenv>=1.0
+streamlit>=1.45
+pytest>=8.0
+-e .

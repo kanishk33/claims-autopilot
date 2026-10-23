@@ -1,0 +1,19 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+PROGRESS NOTE (SOAP)
+Clinic: Example Internal Medicine Associates | Billing NPI: 1987654328
+Rendering provider: Dr. Jordan Sample | Rendering NPI: 1432567893
+Patient: SYNTHETIC PATIENT D | DOB: 1948-01-30 | Sex: F
+Payer: ExamplePayer PPO | Member ID: EP-48183299
+DOS: 05/07/2026 | POS: 11
+Ordering provider: Dr. Taylor Orderly | Ordering NPI: 1357924681
+
+S/O: Follow-up of type 2 diabetes and hypertension. A1c drawn today. Medications reviewed.
+
+A (diagnoses):
+  Dx 1: E11.9 Type 2 diabetes mellitus without complications
+  Dx 2: I10 Essential (primary) hypertension
+
+P (services billed):
+  CPT 99214 Office visit, established patient, moderate, units 1, dx pointer 1, 2, $190.00
+  CPT 83036 Hemoglobin A1c test, units 1, dx pointer 1, $28.00

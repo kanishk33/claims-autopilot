@@ -1,0 +1,174 @@
+# Claims Autopilot validation rules (DEMO CONFIGURATION)
+#
+# These rules are for a portfolio prototype. Real requirements vary by payer,
+# plan, claim type, service, and policy. Rules marked `demo_assumption: true`
+# are simplified examples of the kind of edit a clearinghouse or payer might
+# apply; they are NOT statements that a payer will deny a claim.
+#
+# Categories
+#   validation_error : the claim is missing/invalid per these rules; fix it first
+#   denial_risk      : may lead to a denial for some payers or policies
+#   info             : advisory only
+#
+# Every rule has: why_it_matters (shown to the user) and question (asked to
+# the provider/office to resolve it).
+
+version: 1
+
+risk_scoring:
+  points: {ERROR: 40, WARNING: 15, INFO: 0}
+  # score >= HIGH -> HIGH, score >= MEDIUM -> MEDIUM, else LOW
+  thresholds: {HIGH: 40, MEDIUM: 15}
+
+required_fields:
+  - id: REQ_PATIENT_NAME
+    field: patient.full_name
+    severity: ERROR
+    message: Patient name is missing.
+    why_it_matters: The payer matches the claim to an eligible member using name, date of birth, and member ID.
+    question: What is the patient's full legal name as it appears on the insurance card?
+  - id: REQ_PATIENT_DOB
+    field: patient.date_of_birth
+    severity: ERROR
+    message: Patient date of birth is missing.
+    why_it_matters: Date of birth is a standard element for identifying the patient on a professional claim.
+    question: What is the patient's date of birth (YYYY-MM-DD)?
+  - id: REQ_PAYER_NAME
+    field: insurance.payer_name
+    severity: ERROR
+    message: Insurance payer is missing.
+    why_it_matters: Without the payer the claim cannot be routed to the correct insurer.
+    question: Which insurance company and plan should this claim be sent to?
+  - id: REQ_MEMBER_ID
+    field: insurance.member_id
+    severity: ERROR
+    message: Insurance member ID is missing.
+    why_it_matters: Payers use the member/subscriber ID to find the patient's coverage; a missing ID commonly makes a claim unprocessable.
+    question: What is the member ID on the patient's insurance card (front and back if needed)?
+  - id: REQ_BILLING_NPI
+    field: billing_provider.npi
+    severity: ERROR
+    message: Billing provider NPI is missing.
+    why_it_matters: HIPAA standard transactions identify the billing provider by NPI.
+    question: What is the billing provider's (group's) 10-digit NPI?
+  - id: REQ_RENDERING_NPI
+    field: rendering_provider.npi
+    severity: ERROR
+    demo_assumption: true
+    message: Rendering provider NPI is missing.
+    why_it_matters: Many payers need the NPI of the clinician who performed the service when it differs from the billing provider (demo rule applies it to every claim).
+    question: What is the 10-digit NPI of the clinician who performed the service?
+  - id: REQ_SERVICE_DATE
+    field: service_date
+    severity: ERROR
+    message: Date of service is missing.
+    why_it_matters: Coverage, fee schedules, and filing deadlines are all determined by the date of service.
+    question: On what date was the service performed?
+  - id: REQ_PLACE_OF_SERVICE
+    field: place_of_service
+    severity: ERROR
+    message: Place of service code is missing.
+    why_it_matters: The place of service code affects how a professional service is priced and whether it is payable as billed.
+    question: Where was the service performed (office, telehealth, hospital outpatient, etc.)?
+  - id: REQ_BILLING_NAME
+    field: billing_provider.name
+    severity: WARNING
+    message: Billing provider name is missing.
+    why_it_matters: The billing provider name should match the NPI enrollment record.
+    question: What is the billing provider's legal name?
+
+format_rules:
+  npi_check_digit: true          # CMS NPI check digit (Luhn with 80840 prefix)
+  icd10_pattern: '^[A-TV-Z][0-9][0-9AB](\.[0-9A-TV-Z]{1,4})?$'
+  procedure_pattern: '^([0-9]{4}[0-9FTU]|[A-V][0-9]{4})$'
+  modifier_pattern: '^[0-9A-Z]{2}$'
+  max_diagnoses: 12              # CMS-1500 box 21 holds A-L
+  max_pointers_per_line: 4       # CMS-1500 box 24E holds up to 4 pointers
+  timely_filing_days: 365        # demo default; real limits vary by payer/contract
+  # Subset of the CMS Place of Service code set (public, see README sources)
+  place_of_service:
+    "02": Telehealth provided other than in patient's home
+    "10": Telehealth provided in patient's home
+    "11": Office
+    "12": Home
+    "19": Off campus-outpatient hospital
+    "20": Urgent care facility
+    "21": Inpatient hospital
+    "22": On campus-outpatient hospital
+    "23": Emergency room - hospital
+    "31": Skilled nursing facility
+    "32": Nursing facility
+    "81": Independent laboratory
+
+# Code-specific rules. All are demo assumptions and fully configurable.
+code_rules:
+  - id: ORDERING_PROVIDER_REQUIRED
+    codes: ["71046", "73610", "70553", "83036", "81002"]
+    requires: [ordering_provider.name, ordering_provider.npi]
+    category: denial_risk
+    severity: WARNING
+    demo_assumption: true
+    message: "{code} is a diagnostic test/imaging service but no ordering provider name and NPI are on the claim."
+    why_it_matters: Some payers (for example Medicare for many diagnostic services) expect the ordering/referring provider on the claim; omissions are often returned with remark codes like N264/N265.
+    question: Who ordered the {code} service, and what is their NPI?
+
+  - id: PRIOR_AUTH_REQUIRED
+    codes: ["70553"]
+    requires: [prior_authorization_number]
+    category: denial_risk
+    severity: WARNING
+    demo_assumption: true
+    message: "{code} is configured as a service that needs prior authorization, but no authorization number was found."
+    why_it_matters: When a plan requires authorization for advanced imaging, a missing authorization is a common denial reason (CARC 197).
+    question: Was prior authorization obtained for {code}? If so, what is the authorization number?
+
+  - id: MODIFIER_25_EM_WITH_PROCEDURE
+    em_codes: ["99202", "99203", "99204", "99205", "99212", "99213", "99214", "99215"]
+    procedure_codes: ["20610", "11102", "17110", "69210"]
+    required_modifier: "25"
+    category: denial_risk
+    severity: WARNING
+    demo_assumption: true
+    message: "E/M {code} is billed on the same day as a minor procedure without modifier 25."
+    why_it_matters: Payers often bundle a same-day E/M into the procedure unless modifier 25 shows a significant, separately identifiable E/M (supported by documentation).
+    question: Was the E/M on this date significant and separately identifiable from the procedure? If yes, is it documented so modifier 25 can be added?
+
+  - id: TELEHEALTH_MODIFIER
+    place_of_service: ["02", "10"]
+    required_modifier: "95"
+    em_codes: ["99202", "99203", "99204", "99205", "99212", "99213", "99214", "99215"]
+    category: denial_risk
+    severity: WARNING
+    demo_assumption: true
+    message: "Telehealth place of service on E/M {code} without modifier 95."
+    why_it_matters: Telehealth billing rules differ by payer; some require modifier 95 (or another indicator) on telehealth E/M lines.
+    question: Does this payer require modifier 95 for telehealth visits?
+
+  - id: CLIA_WAIVED_QW
+    codes: ["87880"]
+    required_modifier: "QW"
+    category: info
+    severity: INFO
+    demo_assumption: true
+    message: "{code} is commonly performed as a CLIA-waived test; some payers expect modifier QW."
+    why_it_matters: Medicare and some other payers require QW on certain CLIA-waived tests performed in the office. Check the payer's policy.
+    question: Is {code} performed with a CLIA-waived kit, and does this payer require modifier QW?
+
+  - id: MAX_UNITS
+    max_units:
+      "99202": 1
+      "99203": 1
+      "99204": 1
+      "99205": 1
+      "99212": 1
+      "99213": 1
+      "99214": 1
+      "99215": 1
+      "71046": 1
+      "87880": 2
+    category: denial_risk
+    severity: WARNING
+    demo_assumption: true
+    message: "{code} is billed with {units} units; this demo allows at most {max} per day."
+    why_it_matters: Payers apply per-day unit limits (for Medicare, Medically Unlikely Edits). Units above the limit are often denied.
+    question: How many units of {code} were actually performed on this date?

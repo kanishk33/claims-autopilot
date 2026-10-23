@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claims-autopilot"
+version = "0.1.0"
+description = "Portfolio prototype: LLM-assisted healthcare claim building, pre-submission checks, and denial resolution (synthetic data only)."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.92",
+    "pydantic>=2.6",
+    "pandas>=2.0",
+    "PyYAML>=6.0",
+    "python-dotenv>=1.0",
+    "streamlit>=1.45",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+claims-autopilot-check = "claims_autopilot.llm:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+claims_autopilot = ["sql/*.sql"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["live: calls the real OpenAI API (needs OPENAI_API_KEY; skipped otherwise)"]

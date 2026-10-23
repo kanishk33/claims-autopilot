@@ -1,0 +1,2019 @@
+[
+  {
+    "claim_id": "SYN-CLM-0001",
+    "file": "claim_01.txt",
+    "scenario": "strep",
+    "template": "superbill",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT A",
+        "date_of_birth": "1987-04-12",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-78451233",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1234567893"
+      },
+      "rendering_provider": {
+        "name": "Dr. Alex Example",
+        "npi": "1234567893"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-02-12",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "J02.9",
+          "description": "Acute pharyngitis, unspecified"
+        },
+        {
+          "pointer": 2,
+          "code": "R50.9",
+          "description": "Fever, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1,
+            2
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "87880",
+          "description": "Rapid strep A antigen test",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 35.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0002",
+    "file": "claim_02.txt",
+    "scenario": "cough_xray",
+    "template": "narrative",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT B",
+        "date_of_birth": "1990-11-23",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": "DH-48167461",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Casey Placeholder",
+        "npi": null
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-03-17",
+      "place_of_service": null,
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "R05.9",
+          "description": "Cough, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99214",
+          "description": "Office visit, established patient, moderate",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 190.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "71046",
+          "description": "Chest X-ray, 2 views",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 120.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_rendering_npi",
+        "expected_rule": "REQ_RENDERING_NPI",
+        "detectable_by_rules": true
+      },
+      {
+        "defect": "missing_pos",
+        "expected_rule": "REQ_PLACE_OF_SERVICE",
+        "detectable_by_rules": true
+      },
+      {
+        "defect": "missing_ordering_provider",
+        "expected_rule": "ORDERING_PROVIDER_REQUIRED",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0003",
+    "file": "claim_03.txt",
+    "scenario": "hypertension",
+    "template": "superbill",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT C",
+        "date_of_birth": "1962-07-08",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "SampleCare Medicare Advantage",
+        "plan_type": "Medicare Advantage",
+        "member_id": "SC-48175380",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-04-24",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "I10",
+          "description": "Essential (primary) hypertension"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0004",
+    "file": "claim_04.txt",
+    "scenario": "diabetes",
+    "template": "soap",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT D",
+        "date_of_birth": "1948-01-30",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-48183299",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": "Dr. Taylor Orderly",
+        "npi": "1357924681"
+      },
+      "service_date": "2026-05-07",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "E11.9",
+          "description": "Type 2 diabetes mellitus without complications"
+        },
+        {
+          "pointer": 2,
+          "code": "I10",
+          "description": "Essential (primary) hypertension"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99214",
+          "description": "Office visit, established patient, moderate",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1,
+            2
+          ],
+          "charge": 190.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "83036",
+          "description": "Hemoglobin A1c test",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 28.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0005",
+    "file": "claim_05.txt",
+    "scenario": "knee_injection",
+    "template": "export",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT E",
+        "date_of_birth": "2001-09-15",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "TestShield EPO",
+        "plan_type": "EPO",
+        "member_id": "TS-48191218",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Riley Demo",
+        "npi": "1612345003"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-06-14",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "M17.11",
+          "description": "Unilateral primary osteoarthritis, right knee"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [
+            "25"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "20610",
+          "description": "Major joint injection/aspiration, right knee",
+          "modifiers": [
+            "RT"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 160.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0006",
+    "file": "claim_06.txt",
+    "scenario": "flu_vaccine",
+    "template": "superbill",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT F",
+        "date_of_birth": "1983-03-02",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "SampleCare Medicare Advantage",
+        "plan_type": "Medicare Advantage",
+        "member_id": "SC-48199137",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Casey Placeholder",
+        "npi": "1888777665"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-07-21",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "Z23",
+          "description": "Encounter for immunization"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "90686",
+          "description": "Influenza vaccine, quadrivalent, preservative free",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 40.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "G0008",
+          "description": "Administration of influenza vaccine",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 25.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0007",
+    "file": "claim_07.txt",
+    "scenario": "back_pain",
+    "template": "narrative",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT G",
+        "date_of_birth": "1956-12-19",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": "DH-48207056",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Alex Example",
+        "npi": "1728394051"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-08-04",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "M54.50",
+          "description": "Low back pain, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99203",
+          "description": "Office visit, new patient, low",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 160.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0008",
+    "file": "claim_08.txt",
+    "scenario": "telehealth_anxiety",
+    "template": "soap",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT H",
+        "date_of_birth": "1987-04-12",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-48214975",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Riley Demo",
+        "npi": "1612345003"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-09-11",
+      "place_of_service": "10",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "F41.1",
+          "description": "Generalized anxiety disorder"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Video visit, established patient",
+          "modifiers": [
+            "95"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0009",
+    "file": "claim_09.txt",
+    "scenario": "strep",
+    "template": "export",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT I",
+        "date_of_birth": "1975-04-03",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": null,
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Casey Placeholder",
+        "npi": "1888777665"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-01-18",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "J02.9",
+          "description": "Acute pharyngitis, unspecified"
+        },
+        {
+          "pointer": 2,
+          "code": "R50.9",
+          "description": "Fever, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1,
+            2
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "87880",
+          "description": "Rapid strep A antigen test",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 35.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_member_id",
+        "expected_rule": "REQ_MEMBER_ID",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0010",
+    "file": "claim_10.txt",
+    "scenario": "uti",
+    "template": "superbill",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT J",
+        "date_of_birth": "1990-11-23",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "TestShield EPO",
+        "plan_type": "EPO",
+        "member_id": "TS-48230813",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Alex Example",
+        "npi": "1728394051"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-02-25",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "N39.0",
+          "description": "Urinary tract infection, site not specified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99212",
+          "description": "Office visit, established patient, straightforward",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 95.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "81002",
+          "description": "Urinalysis, non-automated, without microscopy",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 12.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_ordering_provider",
+        "expected_rule": "ORDERING_PROVIDER_REQUIRED",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0011",
+    "file": "claim_11.txt",
+    "scenario": "headache_mri",
+    "template": "narrative",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT K",
+        "date_of_birth": "1962-07-08",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-48238732",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": "Dr. Sam Referral",
+        "npi": "1246813574"
+      },
+      "service_date": "2026-03-08",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "R51.9",
+          "description": "Headache, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "70553",
+          "description": "MRI brain without and with contrast",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 1450.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_prior_auth",
+        "expected_rule": "PRIOR_AUTH_REQUIRED",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0012",
+    "file": "claim_12.txt",
+    "scenario": "skin_biopsy",
+    "template": "soap",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT L",
+        "date_of_birth": "1948-01-30",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "SampleCare Medicare Advantage",
+        "plan_type": "Medicare Advantage",
+        "member_id": "SC-48246651",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Riley Demo",
+        "npi": "1612345003"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-04-15",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "D48.5",
+          "description": "Neoplasm of uncertain behavior of skin"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "11102",
+          "description": "Tangential biopsy of skin, single lesion",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 210.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_modifier_25",
+        "expected_rule": "MODIFIER_25_EM_WITH_PROCEDURE",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0013",
+    "file": "claim_13.txt",
+    "scenario": "hypertension",
+    "template": "export",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT M",
+        "date_of_birth": "2001-09-15",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "TestShield EPO",
+        "plan_type": "EPO",
+        "member_id": "TS-48254570",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654329"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-05-22",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "I10",
+          "description": "Essential (primary) hypertension"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "bad_npi_check_digit",
+        "expected_rule": "FMT_NPI_CHECK_DIGIT",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0014",
+    "file": "claim_14.txt",
+    "scenario": "ankle_xray",
+    "template": "superbill",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT N",
+        "date_of_birth": null,
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": "DH-48262489",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Casey Placeholder",
+        "npi": "1888777665"
+      },
+      "ordering_provider": {
+        "name": "Dr. Taylor Orderly",
+        "npi": "1357924681"
+      },
+      "service_date": "2026-06-05",
+      "place_of_service": null,
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "S93.401A",
+          "description": "Sprain of unspecified ligament of right ankle, initial encounter"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99203",
+          "description": "Office visit, new patient, low",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 160.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "73610",
+          "description": "X-ray ankle, 3 views",
+          "modifiers": [
+            "RT"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 95.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_pos",
+        "expected_rule": "REQ_PLACE_OF_SERVICE",
+        "detectable_by_rules": true
+      },
+      {
+        "defect": "missing_dob",
+        "expected_rule": "REQ_PATIENT_DOB",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0015",
+    "file": "claim_15.txt",
+    "scenario": "diabetes",
+    "template": "narrative",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT O",
+        "date_of_birth": "1956-12-19",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "SampleCare Medicare Advantage",
+        "plan_type": "Medicare Advantage",
+        "member_id": "SC-48270408",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Alex Example",
+        "npi": "1728394051"
+      },
+      "ordering_provider": {
+        "name": "Dr. Sam Referral",
+        "npi": "1246813574"
+      },
+      "service_date": "2026-07-12",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "E11.9",
+          "description": "Type 2 diabetes mellitus without complications"
+        },
+        {
+          "pointer": 2,
+          "code": "I10",
+          "description": "Essential (primary) hypertension"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99214",
+          "description": "Office visit, established patient, moderate",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1,
+            2
+          ],
+          "charge": 190.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "83036",
+          "description": "Hemoglobin A1c test",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [],
+          "charge": 28.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_dx_pointer",
+        "expected_rule": "REQ_DX_POINTER",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0016",
+    "file": "claim_16.txt",
+    "scenario": "back_pain",
+    "template": "soap",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT P",
+        "date_of_birth": "1987-04-12",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-48278327",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Riley Demo",
+        "npi": "1612345003"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-08-19",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "M54.50",
+          "description": "Low back pain, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99203",
+          "description": "Office visit, new patient, low",
+          "modifiers": [],
+          "units": 2,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 160.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "excess_units",
+        "expected_rule": "MAX_UNITS",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0017",
+    "file": "claim_17.txt",
+    "scenario": "telehealth_anxiety",
+    "template": "export",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT Q",
+        "date_of_birth": "1975-04-03",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": "DH-48286246",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-09-26",
+      "place_of_service": "10",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "F41.1",
+          "description": "Generalized anxiety disorder"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Video visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "telehealth_missing_95",
+        "expected_rule": "TELEHEALTH_MODIFIER",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0018",
+    "file": "claim_18.txt",
+    "scenario": "strep",
+    "template": "soap",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT R",
+        "date_of_birth": "1990-11-23",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "TestShield EPO",
+        "plan_type": "EPO",
+        "member_id": "TS-48294165",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Alex Example",
+        "npi": "1728394051"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-01-09",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "J02.9",
+          "description": "Acute pharyngitis, unspecified"
+        },
+        {
+          "pointer": 2,
+          "code": "R50.9",
+          "description": "Fever, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1,
+            2
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "87880",
+          "description": "Rapid strep A antigen test",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            3
+          ],
+          "charge": 35.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "invalid_dx_pointer",
+        "expected_rule": "FMT_DX_POINTER_INVALID",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0019",
+    "file": "claim_19.txt",
+    "scenario": "cough_xray",
+    "template": "superbill",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT S",
+        "date_of_birth": "1962-07-08",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "SampleCare Medicare Advantage",
+        "plan_type": "Medicare Advantage",
+        "member_id": "SC-48302084",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Riley Demo",
+        "npi": "1612345003"
+      },
+      "ordering_provider": {
+        "name": "Dr. Sam Referral",
+        "npi": "1246813574"
+      },
+      "service_date": "2026-02-16",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "Z23",
+          "description": "Encounter for immunization"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99214",
+          "description": "Office visit, established patient, moderate",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 190.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "71046",
+          "description": "Chest X-ray, 2 views",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 120.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "dx_does_not_support_procedure",
+        "expected_rule": null,
+        "detectable_by_rules": false
+      }
+    ],
+    "defect_notes": [
+      "Diagnosis Z23 does not clinically support the billed services."
+    ]
+  },
+  {
+    "claim_id": "SYN-CLM-0020",
+    "file": "claim_20.txt",
+    "scenario": "knee_injection",
+    "template": "narrative",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT T",
+        "date_of_birth": "1948-01-30",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-48310030",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Casey Placeholder",
+        "npi": "1888777665"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-03-23",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "M17.11",
+          "description": "Unilateral primary osteoarthritis, right knee"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [
+            "25"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "20610",
+          "description": "Major joint injection/aspiration, right knee",
+          "modifiers": [
+            "RT"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 160.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "member_id_typo",
+        "expected_rule": null,
+        "detectable_by_rules": false
+      }
+    ],
+    "defect_notes": [
+      "Member ID digits transposed vs. the payer's eligibility record."
+    ]
+  },
+  {
+    "claim_id": "SYN-CLM-0021",
+    "file": "claim_21.txt",
+    "scenario": "flu_vaccine",
+    "template": "export",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT U",
+        "date_of_birth": "2001-09-15",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": "DH-48317922",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-04-06",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "Z23",
+          "description": "Encounter for immunization"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "90686",
+          "description": "Influenza vaccine, quadrivalent, preservative free",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 40.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "G0008",
+          "description": "Administration of influenza vaccine",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 25.0
+        },
+        {
+          "line_number": 3,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "service_not_documented",
+        "expected_rule": null,
+        "detectable_by_rules": false
+      }
+    ],
+    "defect_notes": [
+      "E/M line billed but the note documents only a nurse vaccine visit."
+    ]
+  },
+  {
+    "claim_id": "SYN-CLM-0022",
+    "file": "claim_22.txt",
+    "scenario": "uti",
+    "template": "soap",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT V",
+        "date_of_birth": "1983-03-02",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-48325814",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Casey Placeholder",
+        "npi": null
+      },
+      "ordering_provider": {
+        "name": "Dr. Taylor Orderly",
+        "npi": "1357924681"
+      },
+      "service_date": "2026-05-13",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "N39.0",
+          "description": "Urinary tract infection, site not specified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99212",
+          "description": "Office visit, established patient, straightforward",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 95.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "81002",
+          "description": "Urinalysis, non-automated, without microscopy",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 12.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_rendering_npi",
+        "expected_rule": "REQ_RENDERING_NPI",
+        "detectable_by_rules": true
+      },
+      {
+        "defect": "member_id_typo",
+        "expected_rule": null,
+        "detectable_by_rules": false
+      }
+    ],
+    "defect_notes": [
+      "Member ID digits transposed vs. the payer's eligibility record."
+    ]
+  },
+  {
+    "claim_id": "SYN-CLM-0023",
+    "file": "claim_23.txt",
+    "scenario": "headache_mri",
+    "template": "superbill",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT W",
+        "date_of_birth": "1956-12-19",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "TestShield EPO",
+        "plan_type": "EPO",
+        "member_id": "TS-48333760",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Alex Example",
+        "npi": "1728394051"
+      },
+      "ordering_provider": {
+        "name": "Dr. Sam Referral",
+        "npi": "1246813574"
+      },
+      "service_date": "2026-06-20",
+      "place_of_service": "11",
+      "prior_authorization_number": "PA-2026-1023",
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "R51.9",
+          "description": "Headache, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "70553",
+          "description": "MRI brain without and with contrast",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 1450.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0024",
+    "file": "claim_24.txt",
+    "scenario": "skin_biopsy",
+    "template": "narrative",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT X",
+        "date_of_birth": "1987-04-12",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": null,
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-07-03",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "Z23",
+          "description": "Encounter for immunization"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [
+            "25"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "11102",
+          "description": "Tangential biopsy of skin, single lesion",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 210.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_member_id",
+        "expected_rule": "REQ_MEMBER_ID",
+        "detectable_by_rules": true
+      },
+      {
+        "defect": "dx_does_not_support_procedure",
+        "expected_rule": null,
+        "detectable_by_rules": false
+      }
+    ],
+    "defect_notes": [
+      "Diagnosis Z23 does not clinically support the billed services."
+    ]
+  },
+  {
+    "claim_id": "SYN-CLM-0025",
+    "file": "claim_25.txt",
+    "scenario": "strep",
+    "template": "freetext",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT Y",
+        "date_of_birth": "1975-04-03",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "DemoHealth HMO",
+        "plan_type": "HMO",
+        "member_id": "DH-48349598",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Riley Demo",
+        "npi": "1612345003"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-08-10",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "J02.9",
+          "description": "Acute pharyngitis, unspecified"
+        },
+        {
+          "pointer": 2,
+          "code": "R50.9",
+          "description": "Fever, unspecified"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1,
+            2
+          ],
+          "charge": 145.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "87880",
+          "description": "Rapid strep A antigen test",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 35.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0026",
+    "file": "claim_26.txt",
+    "scenario": "diabetes",
+    "template": "freetext",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT Z",
+        "date_of_birth": "1990-11-23",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "TestShield EPO",
+        "plan_type": "EPO",
+        "member_id": "TS-48357517",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Example Internal Medicine Associates",
+        "npi": "1987654328"
+      },
+      "rendering_provider": {
+        "name": "Dr. Casey Placeholder",
+        "npi": "1888777665"
+      },
+      "ordering_provider": {
+        "name": "Dr. Taylor Orderly",
+        "npi": "1357924681"
+      },
+      "service_date": "2026-09-17",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "E11.9",
+          "description": "Type 2 diabetes mellitus without complications"
+        },
+        {
+          "pointer": 2,
+          "code": "I10",
+          "description": "Essential (primary) hypertension"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99214",
+          "description": "Office visit, established patient, moderate",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1,
+            2
+          ],
+          "charge": 190.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "83036",
+          "description": "Hemoglobin A1c test",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 28.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0027",
+    "file": "claim_27.txt",
+    "scenario": "ankle_xray",
+    "template": "freetext",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT 27",
+        "date_of_birth": "1962-07-08",
+        "sex": "M"
+      },
+      "insurance": {
+        "payer_name": "ExamplePayer PPO",
+        "plan_type": "PPO",
+        "member_id": "EP-48365436",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Demo Urgent & Primary Care",
+        "npi": "1567890128"
+      },
+      "rendering_provider": {
+        "name": "Dr. Jordan Sample",
+        "npi": "1432567893"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-01-24",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "S93.401A",
+          "description": "Sprain of unspecified ligament of right ankle, initial encounter"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99203",
+          "description": "Office visit, new patient, low",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 160.0
+        },
+        {
+          "line_number": 2,
+          "procedure_code": "73610",
+          "description": "X-ray ankle, 3 views",
+          "modifiers": [
+            "RT"
+          ],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 95.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "missing_ordering_provider",
+        "expected_rule": "ORDERING_PROVIDER_REQUIRED",
+        "detectable_by_rules": true
+      }
+    ],
+    "defect_notes": []
+  },
+  {
+    "claim_id": "SYN-CLM-0028",
+    "file": "claim_28.txt",
+    "scenario": "hypertension",
+    "template": "freetext",
+    "expected_claim": {
+      "patient": {
+        "full_name": "SYNTHETIC PATIENT 28",
+        "date_of_birth": "1948-01-30",
+        "sex": "F"
+      },
+      "insurance": {
+        "payer_name": "SampleCare Medicare Advantage",
+        "plan_type": "Medicare Advantage",
+        "member_id": "SC-48373355",
+        "group_number": null
+      },
+      "billing_provider": {
+        "name": "Sample Family Medicine Group",
+        "npi": "1245319607"
+      },
+      "rendering_provider": {
+        "name": "Dr. Alex Example",
+        "npi": "1728394051"
+      },
+      "ordering_provider": {
+        "name": null,
+        "npi": null
+      },
+      "service_date": "2026-02-07",
+      "place_of_service": "11",
+      "prior_authorization_number": null,
+      "diagnoses": [
+        {
+          "pointer": 1,
+          "code": "I10",
+          "description": "Essential (primary) hypertension"
+        }
+      ],
+      "service_lines": [
+        {
+          "line_number": 1,
+          "procedure_code": "99213",
+          "description": "Office visit, established patient",
+          "modifiers": [],
+          "units": 1,
+          "diagnosis_pointers": [
+            1
+          ],
+          "charge": 145.0
+        }
+      ],
+      "needs_verification": []
+    },
+    "seeded_defects": [
+      {
+        "defect": "member_id_typo",
+        "expected_rule": null,
+        "detectable_by_rules": false
+      }
+    ],
+    "defect_notes": [
+      "Member ID digits transposed vs. the payer's eligibility record."
+    ]
+  }
+]

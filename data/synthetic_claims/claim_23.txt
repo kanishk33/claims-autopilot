@@ -1,0 +1,32 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+SUPERBILL / ENCOUNTER FORM
+
+PROVIDERS
+Billing Provider: Example Internal Medicine Associates
+Billing Provider NPI: 1987654328
+Rendering Provider: Dr. Alex Example
+Rendering Provider NPI: 1728394051
+Ordering Provider: Dr. Sam Referral
+Ordering Provider NPI: 1246813574
+
+PATIENT
+Patient Name: SYNTHETIC PATIENT W
+DOB: 1956-12-19
+Sex: M
+Insurance: TestShield EPO
+Member ID: TS-48333760
+Prior Authorization #: PA-2026-1023
+
+ENCOUNTER
+Date of Service: 2026-06-20
+Place of Service: 11
+
+DIAGNOSES (ICD-10-CM)
+1. R51.9 - Headache, unspecified
+
+PROCEDURES
+Line 1: CPT 70553 | MRI brain without and with contrast | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $1450.00
+
+CLINICAL NOTE
+Recurrent headaches with new neurologic symptom; MRI brain with and without contrast performed.

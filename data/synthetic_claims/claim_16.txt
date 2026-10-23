@@ -1,0 +1,16 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+PROGRESS NOTE (SOAP)
+Clinic: Sample Family Medicine Group | Billing NPI: 1245319607
+Rendering provider: Dr. Riley Demo | Rendering NPI: 1612345003
+Patient: SYNTHETIC PATIENT P | DOB: 1987-04-12 | Sex: F
+Payer: ExamplePayer PPO | Member ID: EP-48278327
+DOS: 08/19/2026 | POS: 11
+
+S/O: New patient with low back pain after lifting, no red flags. Home exercise plan.
+
+A (diagnoses):
+  Dx 1: M54.50 Low back pain, unspecified
+
+P (services billed):
+  CPT 99203 Office visit, new patient, low, units 2, dx pointer 1, $160.00

@@ -1,0 +1,13 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL REMITTANCE ***
+
+REMITTANCE ADVICE (simplified, human-readable)
+Payer: DemoHealth HMO
+Claim #: SYN-CLM-0002     Patient: SYNTHETIC PATIENT B     Member ID: DH-55120987
+Date of Service: 2026-03-03
+
+Line 1  CPT 71046   Billed: $120.00   Allowed: $0.00   Paid: $0.00
+        Adjustment: CO-16   $120.00
+        Remark codes: N265, N290
+
+Claim status: Denied. Claim/service lacks information needed for adjudication.
+Patient responsibility: $0.00

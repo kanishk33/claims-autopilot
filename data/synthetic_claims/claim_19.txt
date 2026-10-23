@@ -1,0 +1,32 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+SUPERBILL / ENCOUNTER FORM
+
+PROVIDERS
+Billing Provider: Demo Urgent & Primary Care
+Billing Provider NPI: 1567890128
+Rendering Provider: Dr. Riley Demo
+Rendering Provider NPI: 1612345003
+Ordering Provider: Dr. Sam Referral
+Ordering Provider NPI: 1246813574
+
+PATIENT
+Patient Name: SYNTHETIC PATIENT S
+DOB: 1962-07-08
+Sex: M
+Insurance: SampleCare Medicare Advantage
+Member ID: SC-48302084
+
+ENCOUNTER
+Date of Service: 2026-02-16
+Place of Service: 11
+
+DIAGNOSES (ICD-10-CM)
+1. Z23 - Encounter for immunization
+
+PROCEDURES
+Line 1: CPT 99214 | Office visit, established patient, moderate | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $190.00
+Line 2: CPT 71046 | Chest X-ray, 2 views | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $120.00
+
+CLINICAL NOTE
+Dry cough for three weeks, no fever, scattered wheezes. Chest X-ray ordered.

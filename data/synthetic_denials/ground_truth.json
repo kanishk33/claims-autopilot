@@ -1,0 +1,217 @@
+[
+  {
+    "denial_id": "SYN-DEN-0001",
+    "file": "denial_01.txt",
+    "claim_id": "SYN-CLM-0002",
+    "payer_name": "DemoHealth HMO",
+    "denied_amount": 120.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "16"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "N265"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "N290"
+      }
+    ],
+    "expected_guidance": [
+      "KB-ORDERING-PROVIDER",
+      "KB-RENDERING-NPI"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0002",
+    "file": "denial_02.txt",
+    "claim_id": "SYN-CLM-0011",
+    "payer_name": "ExamplePayer PPO",
+    "denied_amount": 1450.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "197"
+      }
+    ],
+    "expected_guidance": [
+      "KB-PRIOR-AUTH"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0003",
+    "file": "denial_03.txt",
+    "claim_id": "SYN-CLM-0012",
+    "payer_name": "SampleCare Medicare Advantage",
+    "denied_amount": 145.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "97"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "N20"
+      }
+    ],
+    "expected_guidance": [
+      "KB-BUNDLING"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0004",
+    "file": "denial_04.txt",
+    "claim_id": "SYN-CLM-0009",
+    "payer_name": "DemoHealth HMO",
+    "denied_amount": 180.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "31"
+      }
+    ],
+    "expected_guidance": [
+      "KB-ELIGIBILITY"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0005",
+    "file": "denial_05.txt",
+    "claim_id": "SYN-CLM-0013",
+    "payer_name": "TestShield EPO",
+    "denied_amount": 145.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "16"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "N257"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "MA130"
+      }
+    ],
+    "expected_guidance": [
+      "KB-BILLING-NPI",
+      "KB-CORRECTED-VS-APPEAL"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0006",
+    "file": "denial_06.txt",
+    "claim_id": "SYN-CLM-0019",
+    "payer_name": "SampleCare Medicare Advantage",
+    "denied_amount": 310.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "11"
+      }
+    ],
+    "expected_guidance": [
+      "KB-DIAGNOSIS-MISMATCH"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0007",
+    "file": "denial_07.txt",
+    "claim_id": "SYN-CLM-0014",
+    "payer_name": "DemoHealth HMO",
+    "denied_amount": 255.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "16"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "M77"
+      }
+    ],
+    "expected_guidance": [
+      "KB-CORRECTED-VS-APPEAL"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0008",
+    "file": "denial_08.txt",
+    "claim_id": "SYN-CLM-0016",
+    "payer_name": "ExamplePayer PPO",
+    "denied_amount": 60.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "45"
+      },
+      {
+        "code_type": "CARC",
+        "group_code": "PR",
+        "code": "2"
+      }
+    ],
+    "expected_guidance": []
+  },
+  {
+    "denial_id": "SYN-DEN-0009",
+    "file": "denial_09.txt",
+    "claim_id": "SYN-CLM-0010",
+    "payer_name": "TestShield EPO",
+    "denied_amount": 12.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "16"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "N264"
+      },
+      {
+        "code_type": "RARC",
+        "group_code": null,
+        "code": "N265"
+      }
+    ],
+    "expected_guidance": [
+      "KB-ORDERING-PROVIDER"
+    ]
+  },
+  {
+    "denial_id": "SYN-DEN-0010",
+    "file": "denial_10.txt",
+    "claim_id": "SYN-CLM-0024",
+    "payer_name": "DemoHealth HMO",
+    "denied_amount": 355.0,
+    "expected_codes": [
+      {
+        "code_type": "CARC",
+        "group_code": "CO",
+        "code": "50"
+      }
+    ],
+    "expected_guidance": [
+      "KB-MEDICAL-NECESSITY"
+    ]
+  }
+]

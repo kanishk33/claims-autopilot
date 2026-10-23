@@ -1,0 +1,17 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+PROGRESS NOTE (SOAP)
+Clinic: Sample Family Medicine Group | Billing NPI: 1245319607
+Rendering provider: Dr. Riley Demo | Rendering NPI: 1612345003
+Patient: SYNTHETIC PATIENT L | DOB: 1948-01-30 | Sex: F
+Payer: SampleCare Medicare Advantage | Member ID: SC-48246651
+DOS: 04/15/2026 | POS: 11
+
+S/O: Changing pigmented lesion on back; full skin exam; tangential biopsy performed.
+
+A (diagnoses):
+  Dx 1: D48.5 Neoplasm of uncertain behavior of skin
+
+P (services billed):
+  CPT 99213 Office visit, established patient, units 1, dx pointer 1, $145.00
+  CPT 11102 Tangential biopsy of skin, single lesion, units 1, dx pointer 1, $210.00

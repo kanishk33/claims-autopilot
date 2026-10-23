@@ -1,0 +1,27 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+EHR CHARGE EXPORT (synthetic)
+PATIENT NAME: SYNTHETIC PATIENT U
+DOB: 2001-09-15
+SEX: M
+PAYER: DemoHealth HMO
+MEMBER ID: DH-48317922
+BILLING PROVIDER: Demo Urgent & Primary Care
+BILLING NPI: 1567890128
+RENDERING PROVIDER: Dr. Jordan Sample
+RENDERING NPI: 1432567893
+ORDERING PROVIDER: 
+ORDERING NPI: 
+DATE OF SERVICE: 2026-04-06
+PLACE OF SERVICE: 11
+PRIOR AUTH: 
+
+DX# | ICD-10-CM | DESCRIPTION
+1 | Z23 | Encounter for immunization
+
+LINE | CPT/HCPCS | MOD | UNITS | DX PTR | CHARGE
+1 | HCPCS 90686 | mod: - | units: 1 | dx pointer: 1 | $40.00
+2 | HCPCS G0008 | mod: - | units: 1 | dx pointer: 1 | $25.00
+3 | HCPCS 99213 | mod: - | units: 1 | dx pointer: 1 | $145.00
+
+NOTE: Nurse visit for seasonal influenza vaccination. No other services.

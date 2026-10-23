@@ -1,0 +1,7 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL REMITTANCE ***
+
+Payer: DemoHealth HMO
+Claim #: SYN-CLM-0014   Patient: SYNTHETIC PATIENT N
+Date of Service: 2026-06-05
+
+Status: DENIED. Adjustment CO 16; remark codes M77. Amount $255.00.

@@ -1,0 +1,9 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL REMITTANCE ***
+
+Payer: ExamplePayer PPO
+Claim #: SYN-CLM-0016   Patient: SYNTHETIC PATIENT P
+Date of Service: 2026-08-19
+
+LINE 1  99203  BILLED $60.00  PAID $0.00
+        ADJ CO-45  $60.00
+        ADJ PR-2  $60.00

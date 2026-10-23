@@ -1,0 +1,32 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+SUPERBILL / ENCOUNTER FORM
+
+PROVIDERS
+Billing Provider: Demo Urgent & Primary Care
+Billing Provider NPI: 1567890128
+Rendering Provider: Dr. Casey Placeholder
+Rendering Provider NPI: 1888777665
+Ordering Provider: Dr. Taylor Orderly
+Ordering Provider NPI: 1357924681
+
+PATIENT
+Patient Name: SYNTHETIC PATIENT N
+DOB: not recorded
+Sex: F
+Insurance: DemoHealth HMO
+Member ID: DH-48262489
+
+ENCOUNTER
+Date of Service: 2026-06-05
+Place of Service: not recorded
+
+DIAGNOSES (ICD-10-CM)
+1. S93.401A - Sprain of unspecified ligament of right ankle, initial encounter
+
+PROCEDURES
+Line 1: CPT 99203 | Office visit, new patient, low | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $160.00
+Line 2: CPT 73610 | X-ray ankle, 3 views | Units: 1 | Modifiers: RT | Dx Pointers: 1 | Charge: $95.00
+
+CLINICAL NOTE
+Inversion injury of right ankle yesterday. Ankle X-ray, 3 views.

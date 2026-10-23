@@ -1,0 +1,27 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+EHR CHARGE EXPORT (synthetic)
+PATIENT NAME: SYNTHETIC PATIENT I
+DOB: 1975-04-03
+SEX: M
+PAYER: DemoHealth HMO
+MEMBER ID: 
+BILLING PROVIDER: Demo Urgent & Primary Care
+BILLING NPI: 1567890128
+RENDERING PROVIDER: Dr. Casey Placeholder
+RENDERING NPI: 1888777665
+ORDERING PROVIDER: 
+ORDERING NPI: 
+DATE OF SERVICE: 2026-01-18
+PLACE OF SERVICE: 11
+PRIOR AUTH: 
+
+DX# | ICD-10-CM | DESCRIPTION
+1 | J02.9 | Acute pharyngitis, unspecified
+2 | R50.9 | Fever, unspecified
+
+LINE | CPT/HCPCS | MOD | UNITS | DX PTR | CHARGE
+1 | HCPCS 99213 | mod: - | units: 1 | dx pointer: 1,2 | $145.00
+2 | HCPCS 87880 | mod: - | units: 1 | dx pointer: 1 | $35.00
+
+NOTE: Sore throat and fever for 3 days. Tonsillar exudate. Rapid strep A positive in office.

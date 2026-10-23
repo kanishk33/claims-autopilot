@@ -1,0 +1,18 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+PROGRESS NOTE (SOAP)
+Clinic: Demo Urgent & Primary Care | Billing NPI: 1567890128
+Rendering provider: Dr. Casey Placeholder | Rendering NPI: not on file
+Patient: SYNTHETIC PATIENT V | DOB: 1983-03-02 | Sex: F
+Payer: ExamplePayer PPO | Member ID: EP-48325814
+DOS: 05/13/2026 | POS: 11
+Ordering provider: Dr. Taylor Orderly | Ordering NPI: 1357924681
+
+S/O: Dysuria and urinary frequency for two days. Dipstick urinalysis performed in office.
+
+A (diagnoses):
+  Dx 1: N39.0 Urinary tract infection, site not specified
+
+P (services billed):
+  CPT 99212 Office visit, established patient, straightforward, units 1, dx pointer 1, $95.00
+  CPT 81002 Urinalysis, non-automated, without microscopy, units 1, dx pointer 1, $12.00

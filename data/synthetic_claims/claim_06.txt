@@ -1,0 +1,30 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+SUPERBILL / ENCOUNTER FORM
+
+PROVIDERS
+Billing Provider: Demo Urgent & Primary Care
+Billing Provider NPI: 1567890128
+Rendering Provider: Dr. Casey Placeholder
+Rendering Provider NPI: 1888777665
+
+PATIENT
+Patient Name: SYNTHETIC PATIENT F
+DOB: 1983-03-02
+Sex: F
+Insurance: SampleCare Medicare Advantage
+Member ID: SC-48199137
+
+ENCOUNTER
+Date of Service: 2026-07-21
+Place of Service: 11
+
+DIAGNOSES (ICD-10-CM)
+1. Z23 - Encounter for immunization
+
+PROCEDURES
+Line 1: CPT 90686 | Influenza vaccine, quadrivalent, preservative free | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $40.00
+Line 2: CPT G0008 | Administration of influenza vaccine | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $25.00
+
+CLINICAL NOTE
+Nurse visit for seasonal influenza vaccination. No other services.

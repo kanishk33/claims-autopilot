@@ -1,0 +1,20 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+VISIT SUMMARY - Sample Family Medicine Group
+
+Patient: SYNTHETIC PATIENT T
+DOB: 01/30/1948
+Sex: F
+Insurance: ExamplePayer PPO
+Member ID: EP-48310030
+
+Billing Provider: Sample Family Medicine Group, NPI 1245319607
+Rendering Provider: Dr. Casey Placeholder, NPI 1888777665
+Visit date: March 23, 2026
+Place of service: 11
+
+History and exam: Chronic right knee pain from osteoarthritis. Separate evaluation of new hip complaint. Corticosteroid injection right knee.
+
+Assessment: Unilateral primary osteoarthritis, right knee (M17.11).
+Plan / services: Office visit, established patient - CPT 99213 with modifier 25, 1 unit, linked to diagnosis 1. Charge $145.00. Major joint injection/aspiration, right knee - CPT 20610 with modifier RT, 1 unit, linked to diagnosis 1. Charge $160.00.
+Ordering provider: not documented.

@@ -1,0 +1,7 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL REMITTANCE ***
+
+Payer: TestShield EPO
+Claim #: SYN-CLM-0013   Patient: SYNTHETIC PATIENT M
+Date of Service: 2026-05-22
+
+Status: DENIED. Adjustment CO 16; remark codes N257 and MA130. Amount $145.00.

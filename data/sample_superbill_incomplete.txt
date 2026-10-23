@@ -1,0 +1,22 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+VISIT SUMMARY - Sample Imaging & Primary Care (synthetic)
+
+Patient: SYNTHETIC PATIENT B
+DOB: 04/03/1975
+Sex: M
+Insurance: DemoHealth HMO
+Member ID: DH-55120987
+
+Billing Provider: Sample Imaging & Primary Care, NPI 1245319599
+Rendering Provider: Dr. Morgan Placeholder (NPI not recorded on this summary)
+Visit date: March 3, 2026
+
+Reason for visit: Persistent dry cough for three weeks. No fever. Lungs with
+scattered wheezes on exam. Former smoker.
+
+Assessment: Cough, unspecified (ICD-10-CM R05.9).
+
+Plan: Chest X-ray, 2 views - CPT 71046, 1 unit, linked to diagnosis 1. Charge $120.00.
+Ordering provider: not documented.
+Follow up after imaging results are available.

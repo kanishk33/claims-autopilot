@@ -1,0 +1,29 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+SUPERBILL / ENCOUNTER FORM
+
+PROVIDERS
+Billing Provider: Example Internal Medicine Associates
+Billing Provider NPI: 1987654328
+Rendering Provider: Dr. Jordan Sample
+Rendering Provider NPI: 1432567893
+
+PATIENT
+Patient Name: SYNTHETIC PATIENT C
+DOB: 1962-07-08
+Sex: M
+Insurance: SampleCare Medicare Advantage
+Member ID: SC-48175380
+
+ENCOUNTER
+Date of Service: 2026-04-24
+Place of Service: 11
+
+DIAGNOSES (ICD-10-CM)
+1. I10 - Essential (primary) hypertension
+
+PROCEDURES
+Line 1: CPT 99213 | Office visit, established patient | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $145.00
+
+CLINICAL NOTE
+Blood pressure follow-up, home readings reviewed, medication continued.

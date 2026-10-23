@@ -1,0 +1,26 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+EHR CHARGE EXPORT (synthetic)
+PATIENT NAME: SYNTHETIC PATIENT E
+DOB: 2001-09-15
+SEX: M
+PAYER: TestShield EPO
+MEMBER ID: TS-48191218
+BILLING PROVIDER: Sample Family Medicine Group
+BILLING NPI: 1245319607
+RENDERING PROVIDER: Dr. Riley Demo
+RENDERING NPI: 1612345003
+ORDERING PROVIDER: 
+ORDERING NPI: 
+DATE OF SERVICE: 2026-06-14
+PLACE OF SERVICE: 11
+PRIOR AUTH: 
+
+DX# | ICD-10-CM | DESCRIPTION
+1 | M17.11 | Unilateral primary osteoarthritis, right knee
+
+LINE | CPT/HCPCS | MOD | UNITS | DX PTR | CHARGE
+1 | HCPCS 99213 | mod: 25 | units: 1 | dx pointer: 1 | $145.00
+2 | HCPCS 20610 | mod: RT | units: 1 | dx pointer: 1 | $160.00
+
+NOTE: Chronic right knee pain from osteoarthritis. Separate evaluation of new hip complaint. Corticosteroid injection right knee.

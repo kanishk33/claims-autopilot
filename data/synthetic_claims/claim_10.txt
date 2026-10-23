@@ -1,0 +1,30 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+SUPERBILL / ENCOUNTER FORM
+
+PROVIDERS
+Billing Provider: Demo Urgent & Primary Care
+Billing Provider NPI: 1567890128
+Rendering Provider: Dr. Alex Example
+Rendering Provider NPI: 1728394051
+
+PATIENT
+Patient Name: SYNTHETIC PATIENT J
+DOB: 1990-11-23
+Sex: F
+Insurance: TestShield EPO
+Member ID: TS-48230813
+
+ENCOUNTER
+Date of Service: 2026-02-25
+Place of Service: 11
+
+DIAGNOSES (ICD-10-CM)
+1. N39.0 - Urinary tract infection, site not specified
+
+PROCEDURES
+Line 1: CPT 99212 | Office visit, established patient, straightforward | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $95.00
+Line 2: CPT 81002 | Urinalysis, non-automated, without microscopy | Units: 1 | Modifiers: none | Dx Pointers: 1 | Charge: $12.00
+
+CLINICAL NOTE
+Dysuria and urinary frequency for two days. Dipstick urinalysis performed in office.

@@ -1,0 +1,12 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL REMITTANCE ***
+
+Payer: DemoHealth HMO
+Claim #: SYN-CLM-0024   Patient: SYNTHETIC PATIENT X
+Date of Service: 2026-07-03
+
+Dear Provider,
+
+We reviewed the claim above. The service was adjusted with reason code(s) CO-50. The denied amount is $355.00. You may request reconsideration within the time frame in your agreement.
+
+Sincerely,
+Claims Department (synthetic)

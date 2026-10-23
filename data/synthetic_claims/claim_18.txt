@@ -1,0 +1,18 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+PROGRESS NOTE (SOAP)
+Clinic: Sample Family Medicine Group | Billing NPI: 1245319607
+Rendering provider: Dr. Alex Example | Rendering NPI: 1728394051
+Patient: SYNTHETIC PATIENT R | DOB: 1990-11-23 | Sex: F
+Payer: TestShield EPO | Member ID: TS-48294165
+DOS: 01/09/2026 | POS: 11
+
+S/O: Sore throat and fever for 3 days. Tonsillar exudate. Rapid strep A positive in office.
+
+A (diagnoses):
+  Dx 1: J02.9 Acute pharyngitis, unspecified
+  Dx 2: R50.9 Fever, unspecified
+
+P (services billed):
+  CPT 99213 Office visit, established patient, units 1, dx pointer 1, 2, $145.00
+  CPT 87880 Rapid strep A antigen test, units 1, dx pointer 3, $35.00

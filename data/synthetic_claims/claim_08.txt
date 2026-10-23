@@ -1,0 +1,16 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+PROGRESS NOTE (SOAP)
+Clinic: Example Internal Medicine Associates | Billing NPI: 1987654328
+Rendering provider: Dr. Riley Demo | Rendering NPI: 1612345003
+Patient: SYNTHETIC PATIENT H | DOB: 1987-04-12 | Sex: F
+Payer: ExamplePayer PPO | Member ID: EP-48214975
+DOS: 09/11/2026 | POS: 10
+
+S/O: Video visit from patient's home for anxiety follow-up. Medication adjusted.
+
+A (diagnoses):
+  Dx 1: F41.1 Generalized anxiety disorder
+
+P (services billed):
+  CPT 99213-95 Video visit, established patient, units 1, dx pointer 1, $145.00

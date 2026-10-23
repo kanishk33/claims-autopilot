@@ -1,0 +1,19 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL PATIENT OR PROVIDER ***
+
+VISIT SUMMARY - Sample Family Medicine Group
+
+Patient: SYNTHETIC PATIENT X
+DOB: 04/12/1987
+Sex: F
+Insurance: DemoHealth HMO
+
+Billing Provider: Sample Family Medicine Group, NPI 1245319607
+Rendering Provider: Dr. Jordan Sample, NPI 1432567893
+Visit date: July 3, 2026
+Place of service: 11
+
+History and exam: Changing pigmented lesion on back; full skin exam; tangential biopsy performed.
+
+Assessment: Encounter for immunization (Z23).
+Plan / services: Office visit, established patient - CPT 99213 with modifier 25, 1 unit, linked to diagnosis 1. Charge $145.00. Tangential biopsy of skin, single lesion - CPT 11102, 1 unit, linked to diagnosis 1. Charge $210.00.
+Ordering provider: not documented.

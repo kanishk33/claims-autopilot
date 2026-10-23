@@ -1,0 +1,12 @@
+*** SYNTHETIC DATA - FOR DEMONSTRATION ONLY - NOT A REAL REMITTANCE ***
+
+Payer: SampleCare Medicare Advantage
+Claim #: SYN-CLM-0019   Patient: SYNTHETIC PATIENT S
+Date of Service: 2026-02-16
+
+Dear Provider,
+
+We reviewed the claim above. The service was adjusted with reason code(s) CO-11. The denied amount is $310.00. You may request reconsideration within the time frame in your agreement.
+
+Sincerely,
+Claims Department (synthetic)
