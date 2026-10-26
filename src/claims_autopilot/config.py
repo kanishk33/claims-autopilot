@@ -33,6 +33,7 @@ load_dotenv(PROJECT_ROOT / ".env", override=False)
 class Settings:
     openai_api_key: str | None
     openai_model: str
+    base_url: str | None
     timeout_seconds: float
     log_level: str
     db_path: Path
@@ -57,6 +58,7 @@ def get_settings() -> Settings:
     return Settings(
         openai_api_key=(os.getenv("OPENAI_API_KEY") or "").strip() or None,
         openai_model=(os.getenv("OPENAI_MODEL") or DEFAULT_MODEL).strip(),
+        base_url=(os.getenv("OPENAI_BASE_URL") or "").strip() or None,
         timeout_seconds=float(os.getenv("OPENAI_TIMEOUT_SECONDS", "60")),
         log_level=os.getenv("LOG_LEVEL", "INFO").upper(),
         db_path=db,
@@ -75,8 +77,9 @@ def config_problems(settings: Settings | None = None) -> list[str]:
         problems.append("OPENAI_API_KEY is not set. Copy .env.example to .env and add your key.")
     elif s.openai_api_key in PLACEHOLDER_KEYS:
         problems.append("OPENAI_API_KEY still has the placeholder value from .env.example.")
-    elif not s.openai_api_key.startswith("sk-"):
-        problems.append("OPENAI_API_KEY does not start with 'sk-'. Check that you copied the whole key.")
+    elif not s.base_url and not s.openai_api_key.startswith("sk-"):
+        problems.append("OPENAI_API_KEY does not start with 'sk-'. Check that you copied the whole key. "
+                        "(Using a Gemini key? Also set OPENAI_BASE_URL; see docs/SETUP_GUIDE.md.)")
     if not s.openai_model:
         problems.append("OPENAI_MODEL is empty.")
     return problems

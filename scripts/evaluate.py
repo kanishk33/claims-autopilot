@@ -31,14 +31,17 @@ def pct(x: float | None) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--llm", action="store_true", help="run live OpenAI extraction (costs a few cents)")
+    ap.add_argument("--llm", action="store_true", help="run live LLM extraction (costs a few cents on OpenAI)")
+    ap.add_argument("--limit", type=int, default=None,
+                    help="only send the first N claims to the LLM (useful on free tiers with daily limits)")
     args = ap.parse_args()
     setup_logging()
 
     results: dict = {"generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     results["parser_baseline"] = evaluate_extraction(parser_only_extract, "deterministic verifier only (no LLM)")
     if args.llm:
-        results["llm_extraction"] = evaluate_extraction(llm_extract(), f"OpenAI {get_settings().openai_model} + verifier")
+        results["llm_extraction"] = evaluate_extraction(llm_extract(), f"LLM {get_settings().openai_model} + verifier",
+                                                        limit=args.limit)
     results["precheck"] = evaluate_precheck()
     results["denials"] = evaluate_denials()
 
@@ -62,6 +65,10 @@ def main() -> None:
     for r in rows:
         lines.append(f"| {r['method']} | {r['claims_evaluated']} | {r['fields_evaluated']} | {pct(r['field_accuracy'])} | "
                      f"{r['hallucinated_values']} | {r['claims_100pct_correct']} |")
+    if "llm_extraction" in results and results["llm_extraction"]["claims_failed"]:
+        failed = results["llm_extraction"]["claims_failed"]
+        lines += ["", f"{len(failed)} claim(s) failed the LLM call and are not counted "
+                  f"(first error: {failed[0]['error']})."]
     if "llm_extraction" not in results:
         lines += ["", "**LLM extraction was not run for this report.** Run `python scripts/evaluate.py --llm` with a",
                   "working OpenAI key to measure it."]

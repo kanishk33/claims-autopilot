@@ -118,7 +118,9 @@ def get_client() -> openai.OpenAI:
         raise LLMError("configuration", " ".join(problems))
     s = get_settings()
     # max_retries=1: retrying quota errors only wastes time.
-    return openai.OpenAI(api_key=s.openai_api_key, timeout=s.timeout_seconds, max_retries=1)
+    # base_url=None means the normal OpenAI API. Setting OPENAI_BASE_URL points the
+    # same client at any OpenAI-compatible provider (for example Google Gemini).
+    return openai.OpenAI(api_key=s.openai_api_key, base_url=s.base_url, timeout=s.timeout_seconds, max_retries=1)
 
 
 def parse_structured(
@@ -199,7 +201,8 @@ def check_api_access(full: bool = True, client: Any | None = None) -> dict[str, 
     3. optional: one tiny Structured Outputs request (proves quota + schema support)
     """
     s = get_settings()
-    report: dict[str, Any] = {"model": s.openai_model, "key": s.masked_key(), "steps": []}
+    report: dict[str, Any] = {"model": s.openai_model, "key": s.masked_key(),
+                              "endpoint": s.base_url or "https://api.openai.com/v1", "steps": []}
 
     def step(name: str, ok: bool, detail: str) -> None:
         report["steps"].append({"step": name, "ok": ok, "detail": detail})
@@ -235,6 +238,7 @@ def main() -> int:
 
     setup_logging()
     report = check_api_access(full="--skip-call" not in sys.argv)
+    print(f"Endpoint: {report['endpoint']}")
     print(f"Model: {report['model']}   Key: {report['key']}")
     for st in report["steps"]:
         print(f"[{'PASS' if st['ok'] else 'FAIL'}] {st['step']}: {st['detail']}")

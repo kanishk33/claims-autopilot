@@ -84,7 +84,8 @@ Changes from the suggested layout, and why: `source_parser.py` (the verifier) an
 
 ## Setup (about 10 minutes)
 
-Requirements: Python 3.10+ and an OpenAI API key with credits.
+Requirements: Python 3.10+ and an API key: OpenAI, or a **free Google Gemini key** through Gemini's
+OpenAI-compatible endpoint. New to Python? Follow the step-by-step [setup guide](docs/SETUP_GUIDE.md).
 
 ```bash
 git clone https://github.com/<your-username>/claims-autopilot.git

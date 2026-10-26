@@ -102,6 +102,8 @@ with st.sidebar:
     settings = get_settings()
     problems = config_problems(settings)
     st.write(f"**Model:** `{settings.openai_model}`")
+    if settings.base_url:
+        st.write(f"**Endpoint:** `{settings.base_url}`")
     st.write(f"**API key:** `{settings.masked_key()}`")
     if problems:
         for p in problems:

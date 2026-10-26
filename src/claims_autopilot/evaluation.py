@@ -105,11 +105,11 @@ def compare_claim(claim_id: str, pred: ClaimData, truth: dict[str, Any]) -> list
     return out
 
 
-def evaluate_extraction(extract: Callable[[str], ClaimData], label: str) -> dict[str, Any]:
+def evaluate_extraction(extract: Callable[[str], ClaimData], label: str, limit: int | None = None) -> dict[str, Any]:
     results: list[FieldResult] = []
     per_claim = []
     failures = []
-    for row in load_claim_truth():
+    for row in load_claim_truth()[:limit]:
         text = (SYNTHETIC_CLAIMS_DIR / row["file"]).read_text()
         try:
             pred = extract(text)

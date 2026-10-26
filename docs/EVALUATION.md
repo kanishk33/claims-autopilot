@@ -1,6 +1,6 @@
 # Evaluation results
 
-Generated 2026-10-23T09:07:42+00:00 by `python scripts/evaluate.py`.
+Generated 2026-10-26T21:36:37+00:00 by `python scripts/evaluate.py`.
 All data is synthetic (`data/synthetic_claims`, `data/synthetic_denials`). Numbers below are
 computed by `src/claims_autopilot/evaluation.py`; re-run the script to reproduce them.
 

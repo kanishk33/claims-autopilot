@@ -148,6 +148,12 @@ def test_config_problems(monkeypatch):
     assert config.config_problems() == []
     s = config.get_settings()
     assert s.openai_model == "my-model" and s.masked_key() == "sk-...1234"
+    # Non-OpenAI key is fine when an OpenAI-compatible endpoint (e.g. Gemini) is configured
+    monkeypatch.setenv("OPENAI_API_KEY", "AIzaTestKey1234567890")
+    assert any("sk-" in p for p in config.config_problems())
+    monkeypatch.setenv("OPENAI_BASE_URL", "https://generativelanguage.googleapis.com/v1beta/openai/")
+    assert config.config_problems() == []
+    assert config.get_settings().base_url.startswith("https://generativelanguage")
 
 
 def test_check_api_access_steps(monkeypatch):
