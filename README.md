@@ -6,14 +6,9 @@
 > medical-necessity decisions, or claim HIPAA compliance or production readiness. Every output is
 > meant for human review.
 
-![Build Claim](docs/screenshots/01_build_A.png)
-
-| | |
+| Pre-submission check | SQL analytics |
 |---|---|
-| ![Precheck](docs/screenshots/03_precheck_B.png) | ![Denial resolution](docs/screenshots/04_denial.png) |
-
-<sub>Screenshots were captured without an API key, with the OpenAI call replaced by canned responses (the
-status bar shows `MOCK-screenshot-no-API-call`). With a real key, the same screens show the live model name and token counts.</sub>
+| ![Precheck](docs/screenshots/03_precheck_B.png) | ![Analytics](docs/screenshots/05_analytics.png) |
 
 ---
 
