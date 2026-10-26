@@ -181,7 +181,7 @@ Details, licenses, and limitations are in [`docs/DATA_SOURCES.md`](docs/DATA_SOU
 - LLM explanations and letters can still be wrong; they are drafts for a human.
 - The reference table is a small subset; codes outside it are shown as "not in local reference".
 
-## Ideas for next steps
+## Roadmap
 
 1. **Run and publish the live LLM evaluation** (`--llm`) and compare two models on accuracy, cost, and latency.
 2. **Parse real X12 835 remittance files** (synthetic ones) instead of human-readable text.
